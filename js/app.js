@@ -169,9 +169,16 @@ for (hotel of hotels) {
 console.log("*******************************************************************");
 console.log("******                   EJERCICIO 9                        *******");
 console.log("*******************************************************************");
+let hotels2 = [
+    {hoteId: 1, hotelName: "Jhon", availableRooms: 25, price: 10.20,},
+    {hoteId: 2, hotelName: "Doe", availableRooms: 8, price: 4.25,},
+    {hoteId: 3, hotelName: "Clara", availableRooms: 15, price: 14.30,},
+    {hoteId: 4, hotelName: "Elisa", availableRooms: 30, price: 10,},
+    {hoteId: 4, hotelName: "Pedro", availableRooms: 10, price: 8.10,},
+]
 let lessThan10Rooms = [];
 
-for (hotel of hotels) {
+for (hotel of hotels2) {
     if (hotel.availableRooms < 10) {
         hotel.price = hotel.price + 10;
         lessThan10Rooms.push(hotel);
@@ -187,24 +194,23 @@ for (hotel of lessThan10Rooms) {
 console.log("*******************************************************************");
 console.log("******                   EJERCICIO 10                        ******");
 console.log("*******************************************************************");
-
-let hotels2 = [ 
+let hotels3 = [ 
     {hoteId: 1, hotelName: "Hotel 1", availableRooms: 25, price: 10.20, }, 
     {hoteId: 2, hotelName: "Hotel 2", availableRooms: 8, price: 4.25, }, 
     {hoteId: 3, hotelName: "Hotel 3", availableRooms: 15, price: 14.30, }, 
     {hoteId: 4, hotelName: "Hotel 4", availableRooms: 30, price: 10, }, 
     {hoteId: 5, hotelName: "Hotel 5", availableRooms: 10, price: 8.10, }, ]
 
+let existeHotel = name => {
+    let exists = false;
+    for (n = 0; n < hotels3.length && !exists; n++) {
+        exists = exists || (hotels3[n].hotelName == name);
+    }
+    return exists;    
+}
+
 let hotelName = document.getElementById("hotel-name");
 let getHotelName = () => hotelName.value;
-
-function existeHotel(name) {
-    let exists = false;
-    for (n = 0; n < hotels2.length && !exists; n++) {
-        exists = exists || (hotels2[n].hotelName == name);
-    }
-    return exists;
-}
 
 function handleClickEvent() {
     if (existeHotel(getHotelName()))
